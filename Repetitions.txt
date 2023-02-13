@@ -1,0 +1,75 @@
+// python
+
+c1=input()
+res=0
+cn=1
+for i in range(1,len(c1)):
+    if c1[i-1]==c1[i]:
+        cn+=1
+    else:
+        res=max(res,cn)
+        cn=1
+res=max(res,cn)
+print(res)
+
+//java
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+public class Main {
+    static Scanner sc ;
+    public static void main(String[] args) {
+        sc = new Scanner(System.in) ;
+        String s = sc.next() ;
+        char prev = ' ' ;
+        int curLen = 0 ;
+        int maxRepeatLen =  0;
+ 
+        for(int i = 0; i < s.length(); i++) {
+            if(s.charAt(i) == prev){
+                curLen++ ;
+            } else {
+                curLen = 1 ;
+            }
+            prev = s.charAt(i) ;
+            maxRepeatLen = Math.max(maxRepeatLen, curLen) ;
+        }
+        System.out.println(maxRepeatLen);
+    }
+}
+
+//c++
+
+#include<bits/stdc++.h>
+using namespace std;
+ 
+#define int long long
+ 
+int32_t main()
+{
+    ios::sync_with_stdio(false), cin.tie(nullptr);
+ 
+    int n, tans = 1, ans = 1;
+    string s;
+    char tmp;
+ 
+    cin >> s;
+ 
+    tmp = s[0];
+    for (int i = 1; i < s.length(); i++)
+    {
+        if (s[i] == tmp) tans++;
+        else
+        {
+            ans = max(ans, tans);
+            tans = 1;
+            tmp = s[i];
+        }
+    }
+    ans = max(ans, tans);
+ 
+    cout << ans << '\n';
+    
+    return 0;
+}
