@@ -8,6 +8,7 @@ Since 2013, CSES has been used to organize several programming courses and conte
 Main developers:
   Antti Laaksonen
   Topi Talvitie
+  
 Other contributors:
   Matias Lahti
   Henrik Lievonen
