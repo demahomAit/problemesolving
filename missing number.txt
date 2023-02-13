@@ -1,0 +1,96 @@
+//python
+
+n=int(input())
+l=list(map(int, input().strip().split(' '))) 
+l2=[]         
+for i in range(n):
+    l2.append(i+1)
+t=list(set(l2)-set(l))
+print(t[0])
+
+//java
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
+ 
+public class Main {
+ 
+	public static void main(String[] args) {
+		PrintWriter pw=new PrintWriter(System.out);
+        FastScanner sc = new FastScanner();
+        
+        long n = sc.ni();
+        long sum = 0;
+        for(long i=0;i<n-1;i++) {
+        	sum += sc.ni();
+        }
+        
+        long ans = n * (n+1)/2-sum;
+        pw.print(ans);
+        
+        pw.close();
+ 
+	}
+ 
+	   static class FastScanner {
+			BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+			StringTokenizer st=new StringTokenizer("");
+			
+			public String ne() {
+				while (!st.hasMoreElements())
+					try {
+						st=new StringTokenizer(br.readLine());
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				return st.nextToken();
+			}
+			public String ne(int k) {
+				try {
+					return br.readLine();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				return "Not able to read";
+			}
+			
+			int ni() {
+				return Integer.parseInt(ne());
+			}
+			
+			long nl() {
+				return Long.parseLong(ne());
+			}
+			
+			double nd() {
+				return Double.parseDouble(ne());
+			}
+			
+		    
+		}
+}
+
+//c++
+
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL), cout.tie(NULL);
+ 
+    long long int n, n2, sum = 0;
+    cin >> n;
+ 
+    for (int i = 0 ; i < n - 1 ; i++) {
+        cin >> n2;
+        sum += n2;
+    }
+ 
+    cout << ( n * (n + 1) ) / 2 - sum << endl;
+ 
+    return 0;
+}
