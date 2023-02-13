@@ -1,0 +1,51 @@
+// pyton 
+
+res=0
+i=1
+p=1
+n=int(input())
+while i!=0:
+    i=n//(5**p)
+    res+=i
+    p+=1
+    if i==0:
+        break
+print(res) 
+
+// java
+
+import java.util.Scanner; 
+public class TrailingZeros{
+    public static void main(String[] args){
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt(); 
+        int count = 0; 
+        int i2 = 0; 
+ 
+        for (int i = 5; i <= n; i += 5){
+            i2 = i; 
+            while (i2 % 5 == 0){
+                i2 = i2/5;
+                count++;
+            }
+        }
+        System.out.print(count);
+    }
+}
+
+// c++
+
+#include<bits/stdc++.h>
+using namespace std;
+#define int long long
+ 
+signed main(){
+    int n;cin>>n;
+    int val = 5,ans=0;
+    while((n/val)!=0){
+        ans+=n/val;
+        val*=5;
+    }
+    cout<<ans<<"\n";
+} 
+   

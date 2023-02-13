@@ -1,0 +1,68 @@
+// python
+ 
+n = int(input())
+ans = 1
+for i in range(n):
+    ans = (ans * 2) % 1000000007
+print(ans)
+
+// java
+
+import java.io.*;
+import java.util.*;
+ 
+public class Main {
+	static long mod = (long)1e9+7;
+	public static long calPow(long x,long n){
+		long res = 1;
+		while(n>0){
+			if(n%2==1){
+				res = (res%mod * x%mod)%mod;
+				n--;
+			}
+			x= (x%mod*x%mod)%mod;
+			n=n/2;
+		}
+		return res%mod;
+	}
+	public static void main(String[] args) {
+		try {
+			System.setIn(new FileInputStream("input.txt"));
+			System.setOut(new PrintStream(new FileOutputStream("output.txt")));
+		} catch (Exception e) {
+			System.err.println("Error");
+		}
+		Scanner sc = new Scanner(System.in);
+		long n = sc.nextLong();
+		System.out.println(calPow(2,n));
+	}
+}
+
+// c++
+
+#include <bits/stdc++.h>
+using namespace std;
+ 
+long long ans(long long n)
+{
+    long long x = (pow(10, 9) + 7);
+    int t = n / 30;
+ 
+    long long m = (long long)pow(2, n % 30) % x;
+    long long m2 = (long long)pow(2, 30) % x;
+ 
+    while (t--)
+    {
+ 
+        m = (m * m2) % x;
+    }
+ 
+    return m % x;
+}
+ 
+int main()
+{
+    long long n;
+    cin >> n;
+    cout << ans(n) << endl;
+}

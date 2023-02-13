@@ -1,0 +1,65 @@
+// pyton
+
+pile=[]
+pile2=[]
+n=int(input())
+for t in range(n):
+    a,b=map(int, input().split())
+    pile.append(a)
+    pile2.append(b)
+for i in range(n):
+    if pile[i]>pile2[i]:
+            if ((2*pile2[i])<pile[i]) or (pile[i]+pile2[i])%3!=0:
+                print("NO")
+            else:
+                print("YES")
+    else:
+       if ((2*pile[i])<pile2[i]) or (pile[i]+pile2[i])%3!=0:
+           print("NO")
+       else:
+           print("YES") 
+
+// java
+
+import java.util.Scanner;
+ 
+public class CoinPiles {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        StringBuilder stb = new StringBuilder();
+        int t = sc.nextInt();
+        for (int i = 0; i < t; i++) {
+            int a = sc.nextInt(), b = sc.nextInt();
+            int max = Math.max(a, b);
+            int min = Math.min(a, b);
+            int d = max - min;
+            if ((min + max) % 3 == 0 && (max - 2 * d) == (min - d) && (min - d) >= 0) {
+                stb.append("YES" + "\n");
+            } else
+                stb.append("NO" + "\n");
+        }
+        System.out.print(stb);
+    }
+}
+
+// c++
+
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main(void) {
+    ios::sync_with_stdio(false),cin.tie(0);
+    int t;
+    cin >> t;
+    for (int i = 0 ; i < t ; i++) {
+        int a, b;
+        cin >> a >> b;
+        if (a < b) swap(a,b);
+        
+        if (a > 2*b || (a + b) % 3 != 0) {
+            cout << "NO" << '\n';
+        }else{
+            cout << "YES" << '\n';
+        }
+    }
+}

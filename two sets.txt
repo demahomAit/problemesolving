@@ -1,0 +1,99 @@
+// python 
+
+n=int(input())
+sum=0
+s=0
+i=n
+l1=[]
+l2=[]
+for j in range(n+1):
+    sum+=j
+if sum%2==0:
+    print("YES")
+    if n%2!=0:
+        for i in range(1,n+1):
+                s+=i
+                if s%2==0:
+                    l1.append(str(i))
+                else:
+                    l2.append(str(i))
+    else:
+        while i!=0:
+            s+=i
+            if s%2==0:
+                l1.append(str(i))
+            else:
+                l2.append(str(i))
+            i-=1
+    print(len(l1)) 
+    print(' '.join(l1))
+    print(len(l2))
+    print(' '.join(l2))  
+else:
+    print("NO")
+
+// java
+
+import java.io.BufferedWriter;
+import java.io.OutputStreamWriter;
+import java.util.Scanner;
+ 
+public class TwoSets {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        long n = sc.nextLong();
+        long s = (n * (n + 1)) / 2;
+        if (s % 2 == 0) {
+            long ss2 = s / 2;
+            StringBuilder stb = new StringBuilder();
+            System.out.println("YES");
+            long r = n;
+            long ls = 0;
+            while ((ss2 - ls) > r) {
+                ls += r;
+                r--;
+            }
+            stb.append((n - r + 1) + "\n");
+            for (long i = r + 1; i <= n; i++)
+                stb.append(i + " ");
+            stb.append((ss2 - ls) + "\n");
+            stb.append((r - 1) + "\n");
+            for (int i = 1; i <= r; i++)
+                if (i != (ss2 - ls))
+                    stb.append(i + " ");
+            System.out.println(stb);
+        } else {
+            System.out.println("NO");
+        }
+    }
+}
+
+// c++
+
+#include <bits/stdc++.h>
+ 
+using namespace std;
+ 
+int N;
+ 
+int main(){
+    scanf("%d", &N);
+    if(N%4 == 1 || N%4 == 2)    printf("NO\n");
+    else if(N%4 == 3){
+        printf("YES\n");
+        printf("%d\n", N/2);
+        for(int i = 2; i <= N/2; i += 2)
+            printf("%d %d ", i, N-i);
+        printf("%d\n%d\n", N, N/2+1);
+        for(int i = 1; i <= N/2; i += 2)
+            printf("%d %d ", i, N-i);
+    } else {
+        printf("YES\n");
+        printf("%d\n", N/2);
+        for(int i = 2; i <= N/2; i += 2)
+            printf("%d %d ", i, N-i+1);
+        printf("\n%d\n", N/2);
+        for(int i = 1; i <= N/2; i += 2)
+            printf("%d %d ", i, N-i+1);
+    }
+}
